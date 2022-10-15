@@ -1,4 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Roboto&display=swap');
+
 body {
-    color: var(--color-grey-7);
+    font-family: 'Inter', sans-serif;
+    color: var(--color-grey-7) ;
     background-color: var(--color-grey-2);
+}
+
+header {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-user {
+    width: 250px;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-user img {
+    width: 80px;
+    height: 80px;
+    border: 2px solid var(--color-brand-1);
+    border-radius: 80px;
+}
+
+.date-user h3 {
+    font-size: bold 24px;
+}
+
+.date-user p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.507);
+    max-width: 10ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.content-button-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.button-header {
+    padding: 10px 25px;
+    height: 38px;
+    color: var(--color-grey-7);
+    background-color: var(--color-grey-3);
+    border: none;
+    border-radius: var(--border-radius);
+}
+
+main {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.ulRepository {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.ulRepository li {
+    padding: 30px;
+    width: 381px;
+    height: 243px;
+    border: 2px solid var(--color-grey-3);
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.li-title {
+    font-weight: 500;
+    font-size:  20px;
+    max-width: 20ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.li-description {
+    font-size:  14px;
+}
+
+.content-button-link {
+    display: flex;
+    gap: 15px;
+}
+
+.button-link {
+    padding: 5px 10px;
+    height: 38px;
+    text-decoration: none;
+    color: var(--color-grey-7);
+    background-color: var(--color-grey-3);
+    border: 1px solid var(--color-grey-7);
+    border-radius: var(--border-radius);
 }
