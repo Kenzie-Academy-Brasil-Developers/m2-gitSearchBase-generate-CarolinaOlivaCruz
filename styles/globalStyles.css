@@ -6,7 +6,7 @@
 
 :root{
     --color-brand-1: #C2255C;
-    --color-brand-2: #D6336C;
+    --color-brand-2: #d6336c;
     --color-grey-1:  #191C1F;
     --color-grey-2:  #212529;
     --color-grey-3:  #33363A;
@@ -14,4 +14,5 @@
     --color-grey-6:  #A6A8A9;
     --color-grey-7:  #FFFFFF;
     --color-alert:   #C22554;
+    --border-radius: 5px;
 }

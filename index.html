@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/globalStyles.css" />
-    <link rel="stylesheet" href="index.css" />
-    <title>Git Search</title>
-  </head>
-  <body>
-    <main></main>
-    <script src="index.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles/globalStyles.css" />
+  <link rel="stylesheet" href="pages/home/index.css" />
+  <title>Git Search</title>
+</head>
+
+<body>
+  <main>
+    <section class="container-description">
+      <div class="container-content">
+        <h2>Git Search</h2>
+        <p>Encontre e se conecte com profissionais de forma rápida e fácil</p>
+        <p>Achados recentemente:</p>
+      </div>
+    </section>
+
+    <section class="container-search">
+      <div class="container-content">
+        <h4>Procurar por um usuário</h4>
+        <div class="container-search-input">
+          <label for="">Usuário github</label>
+          <input type="text" class="input-search" placeholder="Digite um usuário do github aqui...">
+          <button type="submit" class="button-search">Ver perfil do github</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="pages/home/index.js"></script>
+</body>
+
 </html>

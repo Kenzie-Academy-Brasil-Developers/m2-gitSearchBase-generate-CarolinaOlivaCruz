@@ -1,1 +1,49 @@
-/* Desenvolva sua estilização aqui...*/
+main {
+    display: flex;
+    color: var(--color-grey-7);
+}
+
+.style-page {}
+
+.container-description {
+    width: 50%;
+    height: 100vh;
+    background-color: var(--color-brand-1);
+
+}
+
+.container-search {
+    width: 50%;
+    height: 100vh;
+    background-color: var(--color-grey-2);
+}
+
+.container-content {
+    margin: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.container-search-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-search {
+    height: 38px;
+    padding: 10px;
+    border: 2px solid var(--color-grey-3);
+    border-radius: var(--border-radius);
+    background-color: var(--color-grey-1);
+}
+
+.button-search {
+    height: 38px;
+    border: none;
+    border-radius: var(--border-radius ) ;
+    color: var(--color-grey-7);
+    background-color: var(--color-brand-2);
+    opacity: 0.5;
+}
