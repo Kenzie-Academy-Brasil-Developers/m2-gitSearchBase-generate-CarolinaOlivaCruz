@@ -88,6 +88,7 @@ function listRepository(repository) {
     aRepository.className = 'button-link'
     aRepository.innerText = 'Repositório'
     aRepository.href = html_url
+    aRepository.target = '_blank'
     const aDemo = document.createElement('a')
     aDemo.className = 'button-link'
     aDemo.innerText = 'Demo'

@@ -3,8 +3,6 @@ main {
     color: var(--color-grey-7);
 }
 
-.style-page {}
-
 .container-description {
     width: 50%;
     height: 100vh;
@@ -34,6 +32,7 @@ main {
 .input-search {
     height: 38px;
     padding: 10px;
+    color: var(--color-grey-7);
     border: 2px solid var(--color-grey-3);
     border-radius: var(--border-radius);
     background-color: var(--color-grey-1);
