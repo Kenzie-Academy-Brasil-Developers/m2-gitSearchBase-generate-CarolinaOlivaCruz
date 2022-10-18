@@ -1,54 +1,39 @@
-// const requestUsersAll = "https://api.github.com/users";
-// const url = 'http://127.0.0.1:5500/pages/profile/index.html'
-// const inputSearch = document.getElementById('input-search')
-// const buttonSearch = document.getElementById('button-search')
+import  {pageUser} from '../profile/profile.js'
 
 
-// function requisicao(api, callback) {
-//     fetch(api)
-//         .then((response) => response.json()).then((response) => {
-//             callback(response)
+const htmlUrl = document.createElement('a')
+htmlUrl.innerText = 'http://127.0.0.1:5501/pages/profile/profile.html'
+const inputSearch = document.getElementById('input-search')
+let inputValue = ''
 
-//             console.log(response)
-//         });
-// }
-
-
-// function arrayUsers(array) {
-//     if(inputSearch.value != undefined || inputSearch.value != null){
-        
-//     }
-//     array.forEach((element) => {
-//       let verifyIfContainsObject = element.login.toLowerCase().includes(inputSearch.value.toLowerCase());
-//         if (verifyIfContainsObject) {
-//             buttonClickPage(element.html_url)
-//         }
-//         console.log(element.login)
-//     });
-
-// }
+const buttonSearch = document.getElementById('button-search')
+const baseUrl = `https://api.github.com/users`
+const myHeaders = {
+    'Content-Type': 'application/json'
+}
 
 
-// function buttonClickPage(url){
-
-//     if(inputSearch.value != undefined || inputSearch.value != null){
-//         buttonSearch.addEventListener('click', () => {
-//             openPageUser(url)
-//         })
-//     }
-// }
-
-// function openPageUser(url) {
-//     const win = window.open(url, '_blank')
-//     // win.focus()
-// }
+function showButton(){
+    buttonSearch.addEventListener('click', () => {
+        inputValue = inputSearch.value
+        getUser(inputValue)
+        const win = window.open(htmlUrl, '_blank')
+        return win.focus()
+    })
+}
+showButton()
 
 
-// // function filter(arrayObj){
+ function getUser(name){
+    fetch(`${baseUrl}/${name}`, {
+        method: 'GET',
+        headers: myHeaders
+    })
+    .then(response => response.json())
+    .then(response => {
+        if(response.name != null || response.name != undefined){
+          pageUser(response)
+        }
+    })
+}
 
-// //     const 
-
-
-// // }
-
-// requisicao(requestUsersAll, arrayUsers)
