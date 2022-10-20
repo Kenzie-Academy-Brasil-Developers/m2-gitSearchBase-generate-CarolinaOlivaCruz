@@ -1,5 +1,8 @@
+const userData = JSON.parse(localStorage.getItem('userData'))
+console.log(userData)
 
- export function pageUser(user) {
+
+function pageUser(user) {
   const
     {
       avatar_url,
@@ -30,6 +33,10 @@
   const buttonReturn = document.createElement('button')
   buttonReturn.innerText = 'Trocar de usuário'
   buttonReturn.className = 'button-header'
+  buttonReturn.addEventListener('click', () => {
+    localStorage.removeItem('userData')
+    window.location.assign('../../index.html')
+  })
 
   const main = document.createElement('main')
 
@@ -49,42 +56,60 @@
   return body
 }
 
-
-// function listRepository(repository) {
-
-//   const ul = document.getElementById('ulRepository')
-
-//   repository.forEach(element => {
-
-//     const { id, description, html_url } = element
-
-//     const liRepository = document.createElement('li')
-//     liRepository.id = id
+pageUser(userData)
 
 
-//     const h4Repository = document.createElement('h4')
-//     h4Repository.innerText = description
-//     h4Repository.className = 'li-title'
-//     const pRepository = document.createElement('p')
-//     pRepository.innerText = 'Various versions have evolved over the years, sometimes by accident, sometimes on purpose injected humour and the like'
-//     pRepository.className = 'li-description'
-//     const divRepository = document.createElement('div')
-//     divRepository.className = 'content-button-link'
-//     const aRepository = document.createElement('a')
-//     aRepository.className = 'button-link'
-//     aRepository.innerText = 'Repositório'
-//     aRepository.href = html_url
-//     aRepository.target = '_blank'
-//     const aDemo = document.createElement('a')
-//     aDemo.className = 'button-link'
-//     aDemo.innerText = 'Demo'
 
-//     divRepository.append(aRepository, aDemo)
-//     liRepository.append(h4Repository, pRepository, divRepository)
-//     ul.appendChild(liRepository)
-//   });
+function listRepository(repository) {
 
-// }
+  const ul = document.getElementById('ulRepository')
 
-// requisicao(requestUser, pageUser)
-// requisicao(requestRepository, listRepository)
+  repository.forEach(element => {
+
+    const { id, description, html_url } = element
+
+    const liRepository = document.createElement('li')
+    liRepository.id = id
+
+
+    const h4Repository = document.createElement('h4')
+    h4Repository.innerText = description
+    h4Repository.className = 'li-title'
+    const pRepository = document.createElement('p')
+    pRepository.innerText = 'Various versions have evolved over the years, sometimes by accident, sometimes on purpose injected humour and the like'
+    pRepository.className = 'li-description'
+    const divRepository = document.createElement('div')
+    divRepository.className = 'content-button-link'
+    const aRepository = document.createElement('a')
+    aRepository.className = 'button-link'
+    aRepository.innerText = 'Repositório'
+    aRepository.href = html_url
+    aRepository.target = '_blank'
+    const aDemo = document.createElement('a')
+    aDemo.className = 'button-link'
+    aDemo.innerText = 'Demo'
+
+    divRepository.append(aRepository, aDemo)
+    liRepository.append(h4Repository, pRepository, divRepository)
+    ul.appendChild(liRepository)
+  });
+
+}
+
+
+function getUserRepos(url) {
+  fetch(url, {
+      method: 'GET',
+      headers:  {
+        'Content-Type': 'application/json'
+    }
+  })
+      .then(response => response.json())
+      .then(response => {
+          console.log(response)
+          listRepository(response)
+      })
+      .catch(erro => console.log(erro))
+}
+
+getUserRepos(userData.repos_url)

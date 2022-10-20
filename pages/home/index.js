@@ -1,11 +1,7 @@
-import  {pageUser} from '../profile/profile.js'
-
-
-const htmlUrl = document.createElement('a')
-htmlUrl.innerText = 'http://127.0.0.1:5501/pages/profile/profile.html'
 const inputSearch = document.getElementById('input-search')
 let inputValue = ''
 
+const userInv = document.getElementById('hidden')
 const buttonSearch = document.getElementById('button-search')
 const baseUrl = `https://api.github.com/users`
 const myHeaders = {
@@ -13,27 +9,33 @@ const myHeaders = {
 }
 
 
-function showButton(){
+function showButton() {
     buttonSearch.addEventListener('click', () => {
         inputValue = inputSearch.value
         getUser(inputValue)
-        const win = window.open(htmlUrl, '_blank')
-        return win.focus()
     })
 }
 showButton()
 
 
- function getUser(name){
+function getUser(name) {
     fetch(`${baseUrl}/${name}`, {
         method: 'GET',
         headers: myHeaders
     })
-    .then(response => response.json())
-    .then(response => {
-        if(response.name != null || response.name != undefined){
-          pageUser(response)
-        }
-    })
+        .then(response => response.json())
+        .then(response => {
+            console.log(response)
+            if (response.name != null || response.name != undefined) {
+                window.location.assign('./pages/profile/profile.html')
+                localStorage.setItem('userData', JSON.stringify(response));
+            } else {
+                userInv.classList.toggle('hidden')
+            }
+        })
+        .catch(erro => {
+            console.log(erro)
+            userInv.classList.toggle('hidden')
+        })
 }
 
